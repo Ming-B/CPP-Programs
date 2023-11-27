@@ -7,39 +7,50 @@ public:
     Dog(std::string name_param, std::string breed_param, int age_param);
     ~Dog();
 
+    void printInfo(){
+        std::cout << "Dog (" << this << ") : [ name : " << name 
+        << " breed : " << breed << " age : " << *pAge << '\n';
+    }
+
+    // setters
+    void setName(std::string name){
+        this->name = name;
+    }
+
+
 private:
     std::string name;
     std::string breed;
-    int *p_age{nullptr};
+    int *pAge{nullptr};
 };
 
 Dog::Dog(std::string name_param, std::string breed_param, int age_param)
 {
     name = name_param;
     breed = breed_param;
-    p_age = new int;
-    *p_age = age_param;
+    pAge = new int;
+    *pAge = age_param;
     std::cout << "Dog constructor called for " << name << " at " << this << '\n';
 }
 
 Dog::~Dog()
 {
-    delete p_age;
+    delete pAge;
     std::cout << "Dog destructor called for: " << name << " at " << this << '\n';
 }
 
-void printInfo(){
-    std::cout << "Name: " << '\n';
-    std::cout << "Breed: " << '\n';
-    std::cout << "Age: " << '\n';
-}
 
 int main()
 {
 
-    Dog dog1("Fluffy", "Sheperd", 2); //constructor
+    Dog dog1("Fluffy", "Sheperd", 2); // constructor
+    dog1.printInfo();
+
+    dog1.setName("Pumba");
+    dog1.printInfo();
 
     std::cout << "Done!" << '\n';
-    //Destructor
+    // Destructor
+
     return 0;
 }
