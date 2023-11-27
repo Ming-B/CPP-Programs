@@ -49,7 +49,7 @@ int main()
     dog1.setName("Pumba");
     dog1.printInfo();
 
-    std::cout << "Done!" << '\n';
+    std::cout << "Done!" << std::endl;
     // Destructor
 
     return 0;
